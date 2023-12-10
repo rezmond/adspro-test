@@ -15,6 +15,7 @@ export const buildPlugins = ({
     new HtmlWebpackPlugin({
       template: paths.html,
       favicon: path.resolve(paths.public, 'favicon.ico'),
+      publicPath: '/',
     }),
   ];
 
