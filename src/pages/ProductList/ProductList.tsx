@@ -3,6 +3,7 @@ import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { SearchInput } from '@/components/SearchInput';
+import { BottomToolbar } from '@/components/BottomToolbar';
 
 import styles from './ProductList.module.css';
 
@@ -24,5 +25,6 @@ export const ProductList: FC<ProductListProps> = ({ className }) => (
         </IconButton>
       </Box>
     </Toolbar>
+    <BottomToolbar />
   </AppBar>
 );

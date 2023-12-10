@@ -1,0 +1,3 @@
+.bottomToolbar {
+  min-height: calc(var(--spacing) * 2);
+}
