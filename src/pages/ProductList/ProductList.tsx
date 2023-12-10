@@ -1,28 +1,28 @@
 import { FC } from 'react';
-import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, Box, Toolbar } from '@mui/material';
 
 import { SearchInput } from '@/components/SearchInput';
 import { BottomToolbar } from '@/components/BottomToolbar';
+import { MainMenu } from '@/components/MainMenu';
 
 import styles from './ProductList.module.css';
 
 type ProductListProps = { className?: string };
+
+const menu = [
+  { url: '/one', label: 'one' },
+  { url: '/two', label: 'two' },
+  { url: '/three', label: 'three' },
+];
+
+const mainMenuLabel = 'Main navigation';
 
 export const ProductList: FC<ProductListProps> = ({ className }) => (
   <AppBar className={className}>
     <Toolbar>
       <SearchInput className={styles.searchInput} />
       <Box className={styles.menuButtonWrapper}>
-        <IconButton
-          className={styles.menuButton}
-          size="large"
-          edge="end"
-          color="inherit"
-          aria-label="menu"
-        >
-          <MenuIcon />
-        </IconButton>
+        <MainMenu label={mainMenuLabel} menu={menu} />
       </Box>
     </Toolbar>
     <BottomToolbar />
