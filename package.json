@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --env mode=development"
+    "dev": "webpack serve --env mode=development",
+    "lint": "eslint ./src",
+    "lint:write": "eslint ./src --fix"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +33,15 @@
     "@types/react": "18.2.43",
     "@types/react-dom": "18.2.17",
     "@types/webpack": "5.28.5",
-    "@types/webpack-dev-server": "4.7.2"
+    "@types/webpack-dev-server": "4.7.2",
+    "@typescript-eslint/eslint-plugin": "6.13.2",
+    "eslint": "8.55.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-import-resolver-typescript": "3.6.1",
+    "eslint-plugin-import": "2.29.0",
+    "eslint-plugin-prettier": "5.0.1",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-refresh": "0.4.5",
+    "prettier": "3.1.0"
   }
 }
