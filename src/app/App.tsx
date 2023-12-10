@@ -1,11 +1,5 @@
-import { type FC } from 'react';
-import { Stack } from '@mui/material';
+import { RouterProvider } from 'react-router-dom';
 
-import styles from './App.module.css';
+import { router } from './router';
 
-export const App: FC = () => (
-  <Stack direction="row" gap={1} className={styles.root}>
-    <span>Test</span>
-    <span>Page</span>
-  </Stack>
-);
+export const App = () => <RouterProvider router={router} />;

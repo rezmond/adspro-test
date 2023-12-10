@@ -1,4 +1,4 @@
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import { App } from './app';
 
@@ -8,4 +8,4 @@ if (!root) {
   throw new Error('There is no root element');
 }
 
-render(<App />, root);
+createRoot(root).render(<App />);
