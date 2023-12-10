@@ -34,9 +34,9 @@ export default (env: EnvVariables): Configuration => {
 
   return {
     mode,
-    entry: path.resolve(__dirname, 'src', 'index.tsx'),
+    entry: paths.entry,
     output: {
-      path: path.resolve(__dirname, 'build'),
+      path: paths.output,
       filename: '[name].[contenthash].js',
       clean: true,
     },
