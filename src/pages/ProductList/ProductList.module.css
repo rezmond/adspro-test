@@ -1,0 +1,18 @@
+@custom-media --up-sm (min-width: 600px);
+
+.searchInput {
+  width: 100%;
+
+  @media (--up-sm) {
+    width: auto;
+  }
+}
+
+.menuButtonWrapper {
+  flex-grow: 1;
+  text-align: end;
+}
+
+.menuButton {
+  margin-left: calc(var(--spacing) * 2);
+}

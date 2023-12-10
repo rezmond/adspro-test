@@ -1,0 +1,38 @@
+@custom-media --up-sm (min-width: 600px);
+
+.root {
+  position: relative;
+  border-radius: var(--border-radius);
+  background-color: color-mix(in srgb, var(--mui-palette-common-white) 15%, transparent);
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--mui-palette-common-white) 25%, transparent);
+  }
+}
+
+.iconWrapper {
+  padding: 0 calc(var(--spacing) * 2);
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  color: inherit;
+  width: 100%;
+
+  & :global(.MuiInputBase-input) {
+    padding: var(--spacing) var(--spacing) var(--spacing) 0;
+    padding-left: calc(1em + var(--spacing) * 4);
+
+    @media(--up-sm) {
+      width: 12ch;
+      &:focus {
+        width: 20ch;
+      }
+    }
+  }
+}
