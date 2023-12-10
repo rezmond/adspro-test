@@ -21,11 +21,21 @@ export const buildLoaders = ({
     },
   };
 
+  const autoprefixer = {
+    loader: 'postcss-loader',
+    options: {
+      postcssOptions: {
+        plugins: [['postcss-preset-env']],
+      },
+    },
+  };
+
   const scssLoader = {
     test: /\.css$/i,
     use: [
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       cssLoaderWithModules,
+      autoprefixer,
     ],
   };
 
