@@ -1,6 +1,6 @@
 import path from 'path';
 
-import webpack from 'webpack';
+import { type Configuration } from 'webpack';
 
 import { buildLoaders } from './config/build/buildLoaders';
 import { buildPlugins } from './config/build/buildPlugings';
@@ -16,7 +16,7 @@ interface EnvVariables {
   port?: number;
 }
 
-export default (env: EnvVariables): webpack.Configuration => {
+export default (env: EnvVariables): Configuration => {
   const mode = env.mode || 'development';
   const paths: BuildPaths = {
     output: path.resolve(__dirname, 'build'),

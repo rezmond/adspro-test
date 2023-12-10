@@ -1,6 +1,6 @@
 import path from 'path';
 
-import webpack, { Configuration } from 'webpack';
+import { Configuration, ProgressPlugin } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
@@ -19,7 +19,7 @@ export const buildPlugins = ({
   ];
 
   if (isDev) {
-    plugins.push(new webpack.ProgressPlugin());
+    plugins.push(new ProgressPlugin());
     plugins.push(new ReactRefreshWebpackPlugin());
   } else {
     plugins.push(
