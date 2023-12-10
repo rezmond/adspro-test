@@ -25,7 +25,15 @@ export const buildLoaders = ({
     loader: 'postcss-loader',
     options: {
       postcssOptions: {
-        plugins: [['postcss-preset-env']],
+        plugins: [
+          [
+            '@csstools/postcss-global-data',
+            {
+              files: ['./src/css/media-queries.module.css'],
+            },
+          ],
+          'postcss-preset-env',
+        ],
       },
     },
   };

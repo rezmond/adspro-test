@@ -1,5 +1,3 @@
-@custom-media --up-sm (min-width: 600px);
-
 .root {
   position: relative;
   border-radius: var(--border-radius);
