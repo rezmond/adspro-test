@@ -4,6 +4,7 @@ import { Configuration, ProgressPlugin } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 
 import type { BuildOptions } from './types';
 
@@ -21,6 +22,7 @@ export const buildPlugins = ({
 
   if (isDev) {
     plugins.push(new ProgressPlugin());
+    plugins.push(new ForkTsCheckerWebpackPlugin())
     plugins.push(new ReactRefreshWebpackPlugin());
   } else {
     plugins.push(

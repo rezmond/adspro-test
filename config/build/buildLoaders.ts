@@ -54,7 +54,7 @@ export const buildLoaders = ({
       {
         loader: 'ts-loader',
         options: {
-          transpileOnly: true,
+          transpileOnly: isDev,
           getCustomTransformers: () => ({
             before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
           }),
