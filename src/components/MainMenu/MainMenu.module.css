@@ -1,6 +1,6 @@
 .drawerPaper {
-  min-width: 200px;
-  max-widht: 100%;
+  width: var(--mobile-drawer-width);
+  max-width: 100%;
 }
 
 .menuButtonWrapper {

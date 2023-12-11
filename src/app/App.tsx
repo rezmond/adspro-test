@@ -8,6 +8,8 @@ import { router } from './router';
 import { CssVarsProvider } from './providers/CssVarsProvider';
 import { theme } from './providers/theme';
 
+import './styles.module.css';
+
 export const App = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [mode, setMode] = useState<SupportedColorScheme>(
