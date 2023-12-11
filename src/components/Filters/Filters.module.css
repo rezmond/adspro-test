@@ -1,0 +1,4 @@
+.drawerPaper {
+  width: var(--mobile-drawer-width);
+  max-width: 100%;
+}
