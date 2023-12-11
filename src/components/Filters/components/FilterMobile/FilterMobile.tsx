@@ -1,21 +1,22 @@
 import { Filter as FilterIcon } from '@mui/icons-material';
 import { Drawer, IconButton } from '@mui/material';
-import { type FC, useState } from 'react';
+import { useState, type FC } from 'react';
 
-import styles from './Filters.module.css';
-import {
-  FiltersContent,
-  type FiltersContentProps,
-} from './components/FiltersContent';
-import { Filter } from './types';
+import { FiltersContent, FiltersContentProps } from '../FiltersContent';
+import { type Filter } from '../../types';
+
+import styles from './FilterMobile.module.css';
 
 const drawerClasses = {
   paper: styles.drawerPaper,
 };
 
-type FiltersProps = FiltersContentProps;
+type FilterMobileProps = FiltersContentProps;
 
-export const Filters: FC<FiltersProps> = ({ priceConfig, onFilter }) => {
+export const FilterMobile: FC<FilterMobileProps> = ({
+  priceConfig,
+  onFilter,
+}) => {
   const [isOpened, open] = useState(false);
 
   const toggleDrawer = (value: boolean) => () => {
