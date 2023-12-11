@@ -27,3 +27,7 @@
 .menuButton {
   margin-left: calc(var(--spacing) * 2);
 }
+
+.asideContent {
+  width: calc(var(--spacing) * 25);
+}
