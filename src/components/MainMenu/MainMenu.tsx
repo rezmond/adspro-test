@@ -7,11 +7,11 @@ import {
   List,
   ListItem,
   Stack,
-  useMediaQuery,
-  useTheme,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
+
+import { useUpSm } from '@/shared/hooks';
 
 import styles from './MainMenu.module.css';
 
@@ -35,8 +35,7 @@ type MainMenuProps = {
 
 export const MainMenu: FC<MainMenuProps> = ({ label, menu, className }) => {
   const [isOpened, open] = useState(false);
-  const theme = useTheme();
-  const isUpSm = useMediaQuery(theme.breakpoints.up('sm'));
+  const isUpSm = useUpSm();
 
   const toggleDrawer = (value: boolean) => () => {
     open(value);
