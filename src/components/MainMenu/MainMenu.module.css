@@ -3,6 +3,10 @@
   max-widht: 100%;
 }
 
+.menuItemButtonListItem {
+  width: auto;
+}
+
 .menuItemButton {
   justify-content: flex-start;
 }
