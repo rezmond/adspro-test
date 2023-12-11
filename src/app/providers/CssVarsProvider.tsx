@@ -26,7 +26,6 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
           styles={{
             ':root': {
               '--spacing': theme.spacing(),
-              '--border-radius': theme.shape.borderRadius,
             },
           }}
         />

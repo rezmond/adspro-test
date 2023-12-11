@@ -1,6 +1,6 @@
 .root {
   position: relative;
-  border-radius: var(--border-radius);
+  border-radius: var(--mui-shape-borderRadius);
   background-color: color-mix(in srgb, var(--mui-palette-common-white) 15%, transparent);
 
   &:hover {
