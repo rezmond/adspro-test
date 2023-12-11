@@ -3,7 +3,7 @@ import {
   StyledEngineProvider,
 } from '@mui/material/styles';
 import { type ComponentProps, FC } from 'react';
-import { GlobalStyles } from '@mui/material';
+import { CssBaseline, GlobalStyles } from '@mui/material';
 
 import type { Theme } from './theme';
 
@@ -21,6 +21,7 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
 }) => {
   return (
     <StyledEngineProvider injectFirst>
+      <CssBaseline />
       <Experimental_CssVarsProvider theme={theme} {...props}>
         <GlobalStyles
           styles={{
