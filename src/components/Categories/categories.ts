@@ -1,15 +1,13 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import useSWR from 'swr';
+
+import { API_HOST } from '@/config/api';
+import { fetcher } from '@/shared/utils';
+
+import type { Category, CategoryService, SetCategory } from './types';
 
 const CATEGORY_KEY = 'category';
-
-type Category = string;
-type SetCategory = (category: Category) => void;
-interface CategoryService {
-  active: Category | null;
-  available: Category[];
-  setActive: SetCategory;
-}
 
 const useActiveCategory = (): readonly [
   active: Category | null,
@@ -27,24 +25,18 @@ const useActiveCategory = (): readonly [
   return [active, setCategory];
 };
 
-const __stabCategories = ['ololo', 'trololo', 'pish-pish'];
-
 export const useCategories = (): CategoryService => {
   const [active, setActive] = useActiveCategory();
-  const [available, setAvailable] = useState<null | Category[]>(null);
+  const available = useSWR<Category[]>(
+    `${API_HOST}products/categories`,
+    fetcher,
+  );
 
   useEffect(() => {
-    setTimeout(() => {
-      const fetchedAvailable = __stabCategories;
-      setAvailable(fetchedAvailable);
-    }, 1_000);
-  }, [setAvailable]);
-
-  useEffect(() => {
-    if (available !== null) {
-      setActive(available[0]);
+    if (!available.isLoading && !available.error) {
+      setActive(available.data[0]);
     }
-  }, [available, setActive]);
+  }, [available.data, available.error, available.isLoading, setActive]);
 
   return { active, available, setActive };
 };

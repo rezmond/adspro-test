@@ -1,13 +1,8 @@
-import {
-  Button,
-  CircularProgress,
-  Menu,
-  MenuItem,
-  useTheme,
-} from '@mui/material';
+import { Button, Menu, MenuItem } from '@mui/material';
 import { useState, type FC, useCallback, type MouseEvent } from 'react';
 
 import { useCategories } from './categories';
+import { CategoriesButtonContent } from './components/CategoriesButtonContent';
 
 type CategoriesProps = { className?: string };
 
@@ -19,7 +14,6 @@ const menuListProps = {
 
 export const Categories: FC<CategoriesProps> = ({ className }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLButtonElement>(null);
-  const theme = useTheme();
   const categories = useCategories();
 
   const handleOpenClick = useCallback((e: MouseEvent<HTMLButtonElement>) => {
@@ -31,12 +25,11 @@ export const Categories: FC<CategoriesProps> = ({ className }) => {
   }, []);
 
   const handleMenuItemClick = (_: unknown, index: number) => {
-    categories.setActive(categories.available[index]);
+    categories.setActive(categories.available.data[index]);
     handleClose();
   };
 
   const isOpen = Boolean(anchorEl);
-  const areCategoriesLoading = categories.available === null;
 
   return (
     <>
@@ -45,7 +38,7 @@ export const Categories: FC<CategoriesProps> = ({ className }) => {
         type="button"
         color="inherit"
         title={
-          areCategoriesLoading
+          categories.available.isLoading
             ? 'Категории загружаются ...'
             : 'Выбрать категорию'
         }
@@ -55,11 +48,7 @@ export const Categories: FC<CategoriesProps> = ({ className }) => {
         aria-expanded={isOpen ? 'true' : undefined}
         onClick={handleOpenClick}
       >
-        {areCategoriesLoading ? (
-          <CircularProgress size={theme.spacing(2)} color="inherit" />
-        ) : (
-          categories.active
-        )}
+        <CategoriesButtonContent categories={categories} />
       </Button>
       <Menu
         id={menuId}
@@ -68,7 +57,7 @@ export const Categories: FC<CategoriesProps> = ({ className }) => {
         onClose={handleClose}
         MenuListProps={menuListProps}
       >
-        {categories.available?.map((category, index) => (
+        {categories.available.data?.map((category, index) => (
           <MenuItem
             key={category}
             onClick={(event) => handleMenuItemClick(event, index)}
