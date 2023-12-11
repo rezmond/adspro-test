@@ -44,9 +44,13 @@ export const MainMenu: FC<MainMenuProps> = ({ label, menu, className }) => {
   if (isUpSm) {
     return (
       <nav aria-label={label}>
-        <Stack component={List} direction="row" className={className}>
+        <Stack component={List} direction="row" gap={2} className={className}>
           {menu.map((item) => (
-            <ListItem className={styles.menuItemButtonListItem} key={item.url}>
+            <ListItem
+              disablePadding
+              className={styles.menuItemButtonListItem}
+              key={item.url}
+            >
               <Button fullWidth color="inherit" component={Link} to={item.url}>
                 {item.label}
               </Button>

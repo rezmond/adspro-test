@@ -1,5 +1,10 @@
 .toolbar {
+  column-gap: calc(var(--spacing) * 2);
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  
   @media (--up-sm) {
+    flex-wrap: wrap;
     align-items: flex-start;
   }
 }
@@ -15,7 +20,7 @@
 
   @media (--up-sm) {
     width: auto;
-    margin-top: calc(var(--spacing) * 2);
+    margin-top: calc(var(--spacing) * 1);
   }
 }
 
