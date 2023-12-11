@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import {
+  Box,
   Button,
   Drawer,
   IconButton,
@@ -29,9 +30,10 @@ type MenuItem = {
 type MainMenuProps = {
   label: string;
   menu: MenuItem[];
+  className?: string;
 };
 
-export const MainMenu: FC<MainMenuProps> = ({ label, menu }) => {
+export const MainMenu: FC<MainMenuProps> = ({ label, menu, className }) => {
   const [isOpened, open] = useState(false);
   const theme = useTheme();
   const isUpSm = useMediaQuery(theme.breakpoints.up('sm'));
@@ -43,7 +45,7 @@ export const MainMenu: FC<MainMenuProps> = ({ label, menu }) => {
   if (isUpSm) {
     return (
       <nav aria-label={label}>
-        <Stack component={List} direction="row">
+        <Stack component={List} direction="row" className={className}>
           {menu.map((item) => (
             <ListItem className={styles.menuItemButtonListItem} key={item.url}>
               <Button fullWidth color="inherit" component={Link} to={item.url}>
@@ -58,16 +60,18 @@ export const MainMenu: FC<MainMenuProps> = ({ label, menu }) => {
 
   return (
     <>
-      <IconButton
-        className={styles.menuButton}
-        size="large"
-        edge="end"
-        color="inherit"
-        aria-label="menu"
-        onClick={toggleDrawer(true)}
-      >
-        <MenuIcon />
-      </IconButton>
+      <Box className={styles.menuButtonWrapper}>
+        <IconButton
+          className={styles.menuButton}
+          size="large"
+          edge="end"
+          color="inherit"
+          aria-label="menu"
+          onClick={toggleDrawer(true)}
+        >
+          <MenuIcon />
+        </IconButton>
+      </Box>
       <Drawer
         classes={drawerClasses}
         anchor="right"

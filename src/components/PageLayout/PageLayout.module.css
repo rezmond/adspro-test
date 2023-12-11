@@ -1,0 +1,24 @@
+.toolbar {
+  @media (--up-sm) {
+    align-items: flex-start;
+  }
+}
+
+.mainMenu {
+  @media (--up-sm) {
+    flex-wrap: wrap;
+  }
+}
+
+.searchInput {
+  width: 100%;
+
+  @media (--up-sm) {
+    width: auto;
+    margin-top: calc(var(--spacing) * 2);
+  }
+}
+
+.menuButton {
+  margin-left: calc(var(--spacing) * 2);
+}
