@@ -1,13 +1,12 @@
 import { AppBar, Toolbar } from '@mui/material';
-import { type FC } from 'react';
+import { ReactNode, type FC } from 'react';
 
 import { SearchInput } from '../SearchInput';
 import { MainMenu } from '../MainMenu';
-import { BottomToolbar } from '../BottomToolbar';
 
 import styles from './PageLayout.module.css';
 
-type PageLayoutProps = { className?: string };
+type PageLayoutProps = { className?: string; bottomToolbar?: ReactNode };
 
 const menu = [
   { url: '/profile', label: 'Профиль' },
@@ -18,12 +17,15 @@ const menu = [
 
 const mainMenuLabel = 'Main navigation';
 
-export const PageLayout: FC<PageLayoutProps> = ({ className }) => (
+export const PageLayout: FC<PageLayoutProps> = ({
+  className,
+  bottomToolbar,
+}) => (
   <AppBar className={className}>
     <Toolbar className={styles.toolbar}>
       <SearchInput className={styles.searchInput} />
       <MainMenu className={styles.mainMenu} label={mainMenuLabel} menu={menu} />
     </Toolbar>
-    <BottomToolbar />
+    {bottomToolbar}
   </AppBar>
 );
