@@ -10,9 +10,10 @@ import styles from './ProductList.module.css';
 type ProductListProps = { className?: string };
 
 const menu = [
-  { url: '/one', label: 'one' },
-  { url: '/two', label: 'two' },
-  { url: '/three', label: 'three' },
+  { url: '/profile', label: 'Профиль' },
+  { url: '/basket', label: 'Корзина' },
+  { url: '/settings', label: 'Настройки' },
+  { url: '/logout', label: 'Выйти' },
 ];
 
 const mainMenuLabel = 'Main navigation';
