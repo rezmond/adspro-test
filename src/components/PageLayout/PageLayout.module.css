@@ -1,3 +1,7 @@
+.pageLayout {
+  height: 100%;
+}
+
 .toolbar {
   column-gap: calc(var(--spacing) * 2);
   flex-direction: row-reverse;

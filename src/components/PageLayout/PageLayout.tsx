@@ -32,7 +32,7 @@ export const PageLayout: FC<PageLayoutProps> = ({
 }) => {
   const isUpSm = useUpSm();
   return (
-    <Stack direction="column" gap={2}>
+    <Stack direction="column" gap={2} className={styles.pageLayout}>
       <AppBar position="sticky" className={className}>
         <Toolbar className={styles.toolbar}>
           <MainMenu
@@ -44,7 +44,7 @@ export const PageLayout: FC<PageLayoutProps> = ({
         </Toolbar>
         {bottomToolbar}
       </AppBar>
-      <Grid container direction="row" gap={1}>
+      <Grid container direction="row" gap={1} item flexGrow={1}>
         <Grid item flexGrow={1}>
           {children}
         </Grid>

@@ -1,6 +1,6 @@
 import { RouterProvider } from 'react-router-dom';
 import { SupportedColorScheme, useMediaQuery } from '@mui/material';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { ToggleColorModeContext, ColorModeContext } from '@/shared/contexts';
 
@@ -20,15 +20,17 @@ export const App = () => {
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
   }, []);
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-mui-color-scheme', mode);
+  }, [mode]);
+
   return (
-    <div data-mui-color-scheme={mode}>
-      <CssVarsProvider theme={theme}>
-        <ToggleColorModeContext.Provider value={colorMode}>
-          <ColorModeContext.Provider value={mode}>
-            <RouterProvider router={router} />
-          </ColorModeContext.Provider>
-        </ToggleColorModeContext.Provider>
-      </CssVarsProvider>
-    </div>
+    <CssVarsProvider theme={theme}>
+      <ToggleColorModeContext.Provider value={colorMode}>
+        <ColorModeContext.Provider value={mode}>
+          <RouterProvider router={router} />
+        </ColorModeContext.Provider>
+      </ToggleColorModeContext.Provider>
+    </CssVarsProvider>
   );
 };

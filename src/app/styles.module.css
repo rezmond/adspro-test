@@ -1,3 +1,11 @@
 :root {
   --mobile-drawer-width: 200px;
 }
+
+:root, body {
+  height: 100vh;
+}
+
+:global(#root) {
+  height: 100%;
+}
