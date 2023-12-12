@@ -1,4 +1,4 @@
-import { useCallback, type FC, useMemo } from 'react';
+import { useCallback, type FC } from 'react';
 import { CircularProgress } from '@mui/material';
 
 import { PageLayout } from '@/components/PageLayout';
@@ -15,22 +15,21 @@ import {
 } from '@/components/ProductListContent';
 import { useCategories } from '@/components/Categories';
 
-import { findProductsMinMax } from './utils';
-
 type ProductListProps = { className?: string };
 
 export const ProductList: FC<ProductListProps> = ({ className }) => {
   const isUpSm = useUpSm();
   const categories = useCategories();
-  const productList = useProductList(categories.active);
-  const priceConfig = useMemo(
-    () => findProductsMinMax(productList.products.data),
-    [productList.products.data],
+  const { products, priceConfig, setFilter } = useProductList(
+    categories.active,
   );
 
-  const handleFilter = useCallback((filter: Filter) => {
-    console.log('filter:', filter);
-  }, []);
+  const handleFilter = useCallback(
+    (filter: Filter) => {
+      setFilter(filter);
+    },
+    [setFilter],
+  );
 
   return (
     <PageLayout
@@ -38,7 +37,7 @@ export const ProductList: FC<ProductListProps> = ({ className }) => {
       bottomToolbar={
         <BottomToolbar>
           {!isUpSm &&
-            (productList.products.isLoading ? (
+            (products.isLoading ? (
               <CircularProgress />
             ) : (
               <FiltersMobile
@@ -50,7 +49,7 @@ export const ProductList: FC<ProductListProps> = ({ className }) => {
         </BottomToolbar>
       }
       asideContent={
-        productList.products.isLoading ? (
+        products.isLoading ? (
           <CircularProgress />
         ) : (
           <FiltersDesktop
@@ -61,7 +60,7 @@ export const ProductList: FC<ProductListProps> = ({ className }) => {
         )
       }
     >
-      <ProductListContent products={productList.products} />
+      <ProductListContent products={products} />
     </PageLayout>
   );
 };
