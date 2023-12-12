@@ -1,1 +1,5 @@
+/* See default values of the MUI's "theme.breakpoints" object */
 @custom-media --up-sm (min-width: 600px);
+@custom-media --up-md (min-width: 900px);
+@custom-media --up-lg (min-width: 1200px);
+@custom-media --up-xl (min-width: 1536px);
