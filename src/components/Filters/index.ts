@@ -1,2 +1,2 @@
-export * from './components/FilterMobile';
-export * from './components/FilterDesktop';
+export * from './components/FiltersMobile';
+export * from './components/FiltersDesktop';

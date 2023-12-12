@@ -5,15 +5,15 @@ import { useState, type FC } from 'react';
 import { FiltersContent, FiltersContentProps } from '../FiltersContent';
 import { type Filter } from '../../types';
 
-import styles from './FilterMobile.module.css';
+import styles from './FiltersMobile.module.css';
 
 const drawerClasses = {
   paper: styles.drawerPaper,
 };
 
-type FilterMobileProps = FiltersContentProps;
+type FiltersMobileProps = FiltersContentProps;
 
-export const FilterMobile: FC<FilterMobileProps> = ({
+export const FiltersMobile: FC<FiltersMobileProps> = ({
   priceConfig,
   onFilter,
 }) => {

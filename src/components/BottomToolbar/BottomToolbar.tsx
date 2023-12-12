@@ -8,7 +8,7 @@ import { ColorModeContext, ToggleColorModeContext } from '@/shared/contexts';
 import { useUpSm } from '@/shared/hooks';
 
 import { Categories } from '../Categories';
-import { FilterMobile } from '../Filters';
+import { FiltersMobile } from '../Filters';
 
 import styles from './BottomToolbar.module.css';
 
@@ -36,7 +36,7 @@ export const BottomToolbar: FC<BottomToolbarProps> = ({ className }) => {
         )}
       </IconButton>
       {!isUpSm && (
-        <FilterMobile
+        <FiltersMobile
           priceConfig={{ min: 10, max: 100 }}
           onFilter={(filter) => {
             console.log('filter:', filter);
