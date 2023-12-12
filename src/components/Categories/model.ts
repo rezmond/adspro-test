@@ -7,7 +7,7 @@ import { fetcher } from '@/shared/utils';
 
 import type { Category, CategoryService, SetCategory } from './types';
 
-const CATEGORY_KEY = 'category';
+const categoryKey = 'category';
 
 const useActiveCategory = (): readonly [
   active: Category | null,
@@ -18,10 +18,10 @@ const useActiveCategory = (): readonly [
   setSearchParamsRef.current = setSearchParams;
 
   const setCategory = useCallback((value: Category) => {
-    setSearchParamsRef.current({ [CATEGORY_KEY]: value });
+    setSearchParamsRef.current({ [categoryKey]: value });
   }, []);
 
-  const active = searchParams.get(CATEGORY_KEY) || null;
+  const active = searchParams.get(categoryKey) || null;
   return [active, setCategory];
 };
 
