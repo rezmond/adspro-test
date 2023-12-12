@@ -1,23 +1,23 @@
-import { FC, useContext } from 'react';
+import { FC, ReactNode, useContext } from 'react';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Box, IconButton, Toolbar, useTheme } from '@mui/material';
 import classNames from 'classnames';
 
 import { ColorModeContext, ToggleColorModeContext } from '@/shared/contexts';
-import { useUpSm } from '@/shared/hooks';
 
 import { Categories } from '../Categories';
-import { FiltersMobile } from '../Filters';
 
 import styles from './BottomToolbar.module.css';
 
-type BottomToolbarProps = { className?: string };
+type BottomToolbarProps = { className?: string; children?: ReactNode };
 
-export const BottomToolbar: FC<BottomToolbarProps> = ({ className }) => {
+export const BottomToolbar: FC<BottomToolbarProps> = ({
+  className,
+  children,
+}) => {
   const theme = useTheme();
   const colorMode = useContext(ColorModeContext);
-  const isUpSm = useUpSm();
   const toggleColorMode = useContext(ToggleColorModeContext);
   return (
     <Toolbar className={classNames(styles.bottomToolbar, className)}>
@@ -35,14 +35,7 @@ export const BottomToolbar: FC<BottomToolbarProps> = ({ className }) => {
           <Brightness4Icon />
         )}
       </IconButton>
-      {!isUpSm && (
-        <FiltersMobile
-          priceConfig={{ min: 10, max: 100 }}
-          onFilter={(filter) => {
-            console.log('filter:', filter);
-          }}
-        />
-      )}
+      {children}
     </Toolbar>
   );
 };
