@@ -12,6 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 
 import { useUpSm } from '@/shared/hooks';
+import { Url } from '@/shared/types';
 
 import styles from './MainMenu.module.css';
 
@@ -19,7 +20,6 @@ const drawerClasses = {
   paper: styles.drawerPaper,
 };
 
-type Url = string;
 type Label = string;
 
 type MenuItem = {
