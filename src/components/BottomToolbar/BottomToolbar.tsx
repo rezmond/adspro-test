@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { IconButton, Toolbar, useTheme } from '@mui/material';
+import { Box, IconButton, Toolbar, useTheme } from '@mui/material';
 import classNames from 'classnames';
 
 import { ColorModeContext, ToggleColorModeContext } from '@/shared/contexts';
@@ -21,7 +21,9 @@ export const BottomToolbar: FC<BottomToolbarProps> = ({ className }) => {
   const toggleColorMode = useContext(ToggleColorModeContext);
   return (
     <Toolbar className={classNames(styles.bottomToolbar, className)}>
-      <Categories />
+      <Box className={styles.categoriesWrapper}>
+        <Categories />
+      </Box>
       <IconButton
         aria-label={`Toggle "${colorMode}" color mode`}
         onClick={toggleColorMode}
