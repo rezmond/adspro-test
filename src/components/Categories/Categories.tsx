@@ -1,7 +1,7 @@
 import { Button, Menu, MenuItem } from '@mui/material';
 import { useState, type FC, useCallback, type MouseEvent } from 'react';
 
-import { useCategories } from './categories';
+import { useCategories } from './model';
 import { CategoriesButtonContent } from './components/CategoriesButtonContent';
 
 type CategoriesProps = { className?: string };
