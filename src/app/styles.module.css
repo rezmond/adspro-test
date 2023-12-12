@@ -9,3 +9,7 @@
 :global(#root) {
   height: 100%;
 }
+
+:root body {
+  background-color: var(--mui-palette-background-paper);
+}
