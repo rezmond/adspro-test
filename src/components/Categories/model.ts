@@ -18,7 +18,10 @@ const useActiveCategory = (): readonly [
   setSearchParamsRef.current = setSearchParams;
 
   const setCategory = useCallback((value: Category) => {
-    setSearchParamsRef.current({ [categoryKey]: value });
+    setSearchParamsRef.current((prev) => ({
+      ...Object.fromEntries(prev.entries()),
+      [categoryKey]: value,
+    }));
   }, []);
 
   const active = searchParams.get(categoryKey) || null;

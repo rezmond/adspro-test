@@ -7,6 +7,7 @@ import { type Filter } from '../../types';
 type FilterCall = (filter: Filter) => void;
 
 export type FiltersContentProps = {
+  filterInit: Filter;
   priceConfig: {
     min: number;
     max: number;
@@ -20,13 +21,11 @@ const maxRating = 5;
 const ratingStepsAmount = 4;
 
 export const FiltersContent: FC<FiltersContentProps> = ({
+  filterInit,
   priceConfig,
   onFilter,
 }) => {
-  const [filter, setFilter] = useState({
-    price: priceConfig.max,
-    rating: maxRating,
-  });
+  const [filter, setFilter] = useState(filterInit);
   const handleFilterChange = useCallback((name: string, value: number) => {
     setFilter((prev) => ({
       ...prev,

@@ -20,7 +20,7 @@ type ProductListProps = { className?: string };
 export const ProductList: FC<ProductListProps> = ({ className }) => {
   const isUpSm = useUpSm();
   const categories = useCategories();
-  const { products, priceConfig, setFilter } = useProductList(
+  const { products, priceConfig, filter, setFilter } = useProductList(
     categories.active,
   );
 
@@ -42,6 +42,7 @@ export const ProductList: FC<ProductListProps> = ({ className }) => {
             ) : (
               <FiltersMobile
                 key={categories.active}
+                filterInit={filter}
                 priceConfig={priceConfig}
                 onFilter={handleFilter}
               />
@@ -54,6 +55,7 @@ export const ProductList: FC<ProductListProps> = ({ className }) => {
         ) : (
           <FiltersDesktop
             key={categories.active}
+            filterInit={filter}
             priceConfig={priceConfig}
             onFilter={handleFilter}
           />

@@ -1,5 +1,6 @@
 import useSWR from 'swr';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { API_HOST } from '@/config/api';
 import { fetcher } from '@/shared/utils';
@@ -11,13 +12,34 @@ import { type Filter } from '../Filters';
 import { type ProductListService } from './types';
 import { findProductsMinMax } from './utils';
 
+const filterKey = 'filter';
+
+const useFilter = (): readonly [
+  active: Filter,
+  setActive: (filter: Filter) => void,
+] => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const setSearchParamsRef = useRef(setSearchParams);
+  setSearchParamsRef.current = setSearchParams;
+
+  const setCategory = useCallback((value: Filter) => {
+    setSearchParamsRef.current((prev) => ({
+      ...Object.fromEntries(prev.entries()),
+      [filterKey]: JSON.stringify(value),
+    }));
+  }, []);
+
+  const filter = JSON.parse(searchParams.get(filterKey) || 'null') || {
+    rating: Infinity,
+    price: Infinity,
+  };
+  return [filter, setCategory];
+};
+
 export const useProductList = (
   category: Category | null,
 ): ProductListService => {
-  const [filter, setFilter] = useState<Filter>({
-    rating: Infinity,
-    price: Infinity,
-  });
+  const [filter, setFilter] = useFilter();
 
   const products = useSWR<Product[]>(
     () => category && `${API_HOST}products/category/${category}`,
@@ -35,12 +57,13 @@ export const useProductList = (
   );
 
   return {
-    setFilter,
     products: {
       ...products,
       isLoading: category === null || products.isLoading,
       data,
     },
+    filter,
     priceConfig,
+    setFilter,
   };
 };

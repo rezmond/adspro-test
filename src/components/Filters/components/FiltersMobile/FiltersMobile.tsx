@@ -14,6 +14,7 @@ const drawerClasses = {
 type FiltersMobileProps = FiltersContentProps;
 
 export const FiltersMobile: FC<FiltersMobileProps> = ({
+  filterInit,
   priceConfig,
   onFilter,
 }) => {
@@ -45,7 +46,11 @@ export const FiltersMobile: FC<FiltersMobileProps> = ({
         open={isOpened}
         onClose={toggleDrawer(false)}
       >
-        <FiltersContent priceConfig={priceConfig} onFilter={handleFilter} />
+        <FiltersContent
+          filterInit={filterInit}
+          priceConfig={priceConfig}
+          onFilter={handleFilter}
+        />
       </Drawer>
     </>
   );
