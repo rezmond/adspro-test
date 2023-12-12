@@ -1,4 +1,4 @@
-import { useCallback, type FC } from 'react';
+import { useCallback, type FC, useMemo } from 'react';
 
 import { PageLayout } from '@/components/PageLayout';
 import { BottomToolbar } from '@/components/BottomToolbar';
@@ -14,13 +14,18 @@ import {
 } from '@/components/ProductListContent';
 import { useCategories } from '@/components/Categories';
 
+import { findProductsMinMax } from './utils';
+
 type ProductListProps = { className?: string };
 
 export const ProductList: FC<ProductListProps> = ({ className }) => {
   const isUpSm = useUpSm();
   const categories = useCategories();
   const productList = useProductList(categories.active);
-  const priceConfig = { min: 10, max: 100 };
+  const priceConfig = useMemo(
+    () => findProductsMinMax(productList.products.data),
+    [productList.products.data],
+  );
 
   const handleFilter = useCallback((filter: Filter) => {
     console.log('filter:', filter);
