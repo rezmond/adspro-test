@@ -1,4 +1,4 @@
-import { AppBar, Grid, Stack, Toolbar } from '@mui/material';
+import { AppBar, Divider, Grid, Stack, Toolbar } from '@mui/material';
 import { ReactNode, type FC } from 'react';
 
 import { useUpSm } from '@/shared/hooks';
@@ -44,14 +44,17 @@ export const PageLayout: FC<PageLayoutProps> = ({
         </Toolbar>
         {bottomToolbar}
       </AppBar>
-      <Grid container direction="row" gap={2}>
+      <Grid container direction="row" gap={1}>
         <Grid item flexGrow={1}>
           {children}
         </Grid>
         {isUpSm && (
-          <Grid item className={styles.asideContent}>
-            {asideContent}
-          </Grid>
+          <>
+            <Divider orientation="vertical" flexItem />
+            <Grid item className={styles.asideContent}>
+              {asideContent}
+            </Grid>
+          </>
         )}
       </Grid>
     </Stack>
