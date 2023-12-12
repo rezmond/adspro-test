@@ -33,7 +33,7 @@ export const useCategories = (): CategoryService => {
   );
 
   useEffect(() => {
-    if (!available.isLoading && !available.error) {
+    if (!available.isLoading && !available.error && available.data) {
       setActive(available.data[0]);
     }
   }, [available.data, available.error, available.isLoading, setActive]);

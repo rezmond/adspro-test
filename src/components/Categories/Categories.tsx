@@ -25,7 +25,7 @@ export const Categories: FC<CategoriesProps> = ({ className }) => {
   }, []);
 
   const handleMenuItemClick = (_: unknown, index: number) => {
-    categories.setActive(categories.available.data[index]);
+    categories.setActive(categories.available.data![index]);
     handleClose();
   };
 
