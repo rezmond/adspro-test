@@ -16,10 +16,10 @@ type PageLayoutProps = {
 };
 
 const menu = [
-  { url: '/profile', label: 'Профиль' },
-  { url: '/basket', label: 'Корзина' },
-  { url: '/settings', label: 'Настройки' },
-  { url: '/logout', label: 'Выйти' },
+  { url: '/profile', label: 'Profile' },
+  { url: '/basket', label: 'Basket' },
+  { url: '/settings', label: 'Settings' },
+  { url: '/logout', label: 'Log out' },
 ];
 
 const mainMenuLabel = 'Main navigation';

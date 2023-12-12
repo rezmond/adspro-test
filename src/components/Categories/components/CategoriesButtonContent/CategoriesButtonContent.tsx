@@ -17,7 +17,7 @@ export const CategoriesButtonContent: FC<CategoriesButtonContentProps> = ({
   }
 
   if (categories.available.error) {
-    return <Typography color="common.error">Что-то пошло не так</Typography>;
+    return <Typography color="common.error">Something went wrong</Typography>;
   }
 
   return categories.active;
