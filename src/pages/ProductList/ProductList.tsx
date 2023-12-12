@@ -1,4 +1,5 @@
 import { useCallback, type FC, useMemo } from 'react';
+import { CircularProgress } from '@mui/material';
 
 import { PageLayout } from '@/components/PageLayout';
 import { BottomToolbar } from '@/components/BottomToolbar';
@@ -36,13 +37,28 @@ export const ProductList: FC<ProductListProps> = ({ className }) => {
       className={className}
       bottomToolbar={
         <BottomToolbar>
-          {!isUpSm && (
-            <FiltersMobile priceConfig={priceConfig} onFilter={handleFilter} />
-          )}
+          {!isUpSm &&
+            (productList.products.isLoading ? (
+              <CircularProgress />
+            ) : (
+              <FiltersMobile
+                key={categories.active}
+                priceConfig={priceConfig}
+                onFilter={handleFilter}
+              />
+            ))}
         </BottomToolbar>
       }
       asideContent={
-        <FiltersDesktop priceConfig={priceConfig} onFilter={handleFilter} />
+        productList.products.isLoading ? (
+          <CircularProgress />
+        ) : (
+          <FiltersDesktop
+            key={categories.active}
+            priceConfig={priceConfig}
+            onFilter={handleFilter}
+          />
+        )
       }
     >
       <ProductListContent products={productList.products} />
