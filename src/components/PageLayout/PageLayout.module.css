@@ -32,6 +32,19 @@
   margin-left: calc(var(--spacing) * 2);
 }
 
+.contentWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+  gap: var(--spacing);
+}
+
+.mainContent {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
 .asideContent {
+  flex-shrink: 0;
   width: calc(var(--spacing) * 25);
 }
