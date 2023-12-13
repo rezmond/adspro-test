@@ -5,6 +5,7 @@ import { useUpSm } from '@/shared/hooks';
 
 import { SearchInput } from '../SearchInput';
 import { MainMenu } from '../MainMenu';
+import { Breadcrumbs } from '../Breadcrumbs';
 
 import styles from './PageLayout.module.css';
 
@@ -46,6 +47,7 @@ export const PageLayout: FC<PageLayoutProps> = ({
       </AppBar>
       <Box className={styles.contentWrapper}>
         <Container component="main" className={styles.mainContent}>
+          <Breadcrumbs />
           {children}
         </Container>
         {isUpSm && asideContent && (
