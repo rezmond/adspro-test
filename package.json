@@ -21,6 +21,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.11",
     "browserslist": "4.22.2",
     "classnames": "2.3.2",
+    "copy-webpack-plugin": "11.0.0",
     "css-loader": "6.8.1",
     "html-webpack-plugin": "5.5.4",
     "mini-css-extract-plugin": "2.7.6",
