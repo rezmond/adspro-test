@@ -38,7 +38,7 @@ export const FiltersMobile: FC<FiltersMobileProps> = ({
         aria-label="menu"
         onClick={toggleDrawer(true)}
       >
-        <FilterIcon /> filter
+        <FilterIcon className={styles.filterToggleIcon} /> filter
       </IconButton>
       <Drawer
         classes={drawerClasses}

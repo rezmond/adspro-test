@@ -2,3 +2,7 @@
   width: var(--mobile-drawer-width);
   max-width: 100%;
 }
+
+.filterToggleIcon {
+  margin-inline-end: var(--spacing);
+}
