@@ -25,7 +25,7 @@ export const BottomToolbar: FC<BottomToolbarProps> = ({
         <Categories />
       </Box>
       <IconButton
-        aria-label={`Toggle "${colorMode}" color mode`}
+        title={`Toggle "${colorMode}" color mode`}
         onClick={toggleColorMode}
         color="inherit"
       >
