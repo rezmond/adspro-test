@@ -35,12 +35,12 @@ export const PageLayout: FC<PageLayoutProps> = ({
     <Stack direction="column" gap={2} className={styles.pageLayout}>
       <AppBar position="sticky" className={className}>
         <Toolbar className={styles.toolbar}>
+          <SearchInput className={styles.searchInput} />
           <MainMenu
             className={styles.mainMenu}
             label={mainMenuLabel}
             menu={menu}
           />
-          <SearchInput className={styles.searchInput} />
         </Toolbar>
         {bottomToolbar}
       </AppBar>
