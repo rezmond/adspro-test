@@ -5,6 +5,6 @@ export type SetCategory = (category: Category) => void;
 
 export interface CategoryService {
   active: Category | null;
-  available: SWRResponse<Category[], unknown, unknown>;
+  available: SWRResponse<Category[], Error, unknown>;
   setActive: SetCategory;
 }

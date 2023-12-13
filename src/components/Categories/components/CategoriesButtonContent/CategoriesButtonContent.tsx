@@ -1,5 +1,7 @@
 import { type FC } from 'react';
-import { CircularProgress, Typography, useTheme } from '@mui/material';
+import { CircularProgress, useTheme } from '@mui/material';
+
+import { ErrorMessage } from '@/components/ErrorMessage';
 
 import { CategoryService } from '../../types';
 
@@ -17,7 +19,12 @@ export const CategoriesButtonContent: FC<CategoriesButtonContentProps> = ({
   }
 
   if (categories.available.error) {
-    return <Typography color="common.error">Something went wrong</Typography>;
+    return (
+      <ErrorMessage
+        title="The categories could not be fetched."
+        message={categories.available.error.message}
+      />
+    );
   }
 
   return categories.active;

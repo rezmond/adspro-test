@@ -6,15 +6,15 @@ import {
   Grid,
   List,
   ListItem,
-  Typography,
 } from '@mui/material';
 
 import { Product } from '../ProductDetails';
 import { ProductCard } from '../ProductCard';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { ErrorMessage } from '../ErrorMessage';
 
 type ProductListContentProps = {
-  products: SWRResponse<Product[], unknown, unknown>;
+  products: SWRResponse<Product[], Error, unknown>;
 };
 
 export const ProductListContent: FC<ProductListContentProps> = ({
@@ -25,7 +25,12 @@ export const ProductListContent: FC<ProductListContentProps> = ({
   }
 
   if (products.error) {
-    return <Typography color="error">Something went wrong</Typography>;
+    return (
+      <ErrorMessage
+        title="The products could not be fetched."
+        message={products.error.message}
+      />
+    );
   }
 
   return (

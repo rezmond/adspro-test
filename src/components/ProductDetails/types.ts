@@ -21,5 +21,5 @@ export type Product = {
 };
 
 export interface ProductService {
-  product: SWRResponse<Product, unknown, unknown>;
+  product: SWRResponse<Product, Error, unknown>;
 }

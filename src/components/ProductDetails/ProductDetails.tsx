@@ -2,6 +2,7 @@ import { type FC } from 'react';
 import { Box, CircularProgress, Typography } from '@mui/material';
 
 import { Votes } from '../Votes';
+import { ErrorMessage } from '../ErrorMessage';
 
 import { useProduct } from './model';
 import styles from './ProductDetails.module.css';
@@ -18,7 +19,12 @@ export const ProductDetails: FC<ProductDetailsProps> = ({ id }) => {
   }
 
   if (productService.product.error) {
-    return <Typography color="error.detail">Something went wrong</Typography>;
+    return (
+      <ErrorMessage
+        title="The product could not be fetched."
+        message={productService.product.error.message}
+      />
+    );
   }
 
   const product = productService.product.data!;

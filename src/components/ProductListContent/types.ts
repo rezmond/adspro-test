@@ -4,7 +4,7 @@ import { Product } from '../ProductDetails';
 import { type Filter } from '../Filters';
 
 export interface ProductListService {
-  products: SWRResponse<Product[], unknown, unknown>;
+  products: SWRResponse<Product[], Error, unknown>;
   filter: Filter;
   priceConfig: {
     min: number;
