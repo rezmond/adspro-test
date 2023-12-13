@@ -9,7 +9,7 @@ import { type FC } from 'react';
 import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
 
-import { Product } from '../Product';
+import { type Product } from '../ProductDetails';
 import { Votes } from '../Votes';
 
 import styles from './ProductCard.module.css';

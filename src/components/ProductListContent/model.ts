@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import { API_HOST } from '@/config/api';
 import { fetcher } from '@/shared/utils';
 
-import { type Product } from '../Product';
+import { type Product } from '../ProductDetails';
 import { type Category } from '../Categories';
 import { type Filter } from '../Filters';
 

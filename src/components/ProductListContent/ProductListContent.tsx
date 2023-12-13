@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 
-import { Product } from '../Product';
+import { Product } from '../ProductDetails';
 import { ProductCard } from '../ProductCard';
 
 type ProductListContentProps = {

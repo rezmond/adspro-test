@@ -1,4 +1,4 @@
-import type { Product } from '@/components/Product';
+import type { Product } from '@/components/ProductDetails';
 
 export const findProductsMinMax = (products?: Product[]) =>
   products?.reduce(

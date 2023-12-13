@@ -1,9 +1,11 @@
+import { type SWRResponse } from 'swr';
+
 import { Url } from '@/shared/types';
 
 import { Category } from '../Categories';
 
 type Id = number;
-type Rating = {
+export type Rating = {
   rate: number;
   count: number;
 };
@@ -17,3 +19,7 @@ export type Product = {
   rating: Rating;
   title: string;
 };
+
+export interface ProductService {
+  product: SWRResponse<Product, unknown, unknown>;
+}

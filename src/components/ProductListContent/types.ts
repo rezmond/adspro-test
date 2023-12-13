@@ -1,6 +1,6 @@
 import { type SWRResponse } from 'swr';
 
-import { Product } from '../Product';
+import { Product } from '../ProductDetails';
 import { type Filter } from '../Filters';
 
 export interface ProductListService {

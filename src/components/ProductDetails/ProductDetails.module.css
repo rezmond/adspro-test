@@ -1,0 +1,15 @@
+.productDetails > * {
+  margin-top: calc(var(--spacing) * 2);
+  color: var(--mui-palette-text-primary);
+}
+
+.imageWrapper {
+  text-align: center;
+}
+
+.image {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  max-width: 100%;
+  max-height: calc(var(--spacing) * 40);
+}
