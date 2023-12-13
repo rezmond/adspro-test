@@ -4,6 +4,8 @@ import { Breadcrumbs, Container, Link, Typography } from '@mui/material';
 
 import { ProductDetails } from '@/components/ProductDetails';
 import { PageLayout } from '@/components/PageLayout';
+import { BottomToolbar } from '@/components/BottomToolbar';
+import { ColorModeToggler } from '@/components/ColorModeToggler';
 
 type ProductPageProps = {
   className?: string;
@@ -12,7 +14,13 @@ type ProductPageProps = {
 export const ProductPage: FC<ProductPageProps> = () => {
   const params = useParams();
   return (
-    <PageLayout>
+    <PageLayout
+      bottomToolbar={
+        <BottomToolbar>
+          <ColorModeToggler />
+        </BottomToolbar>
+      }
+    >
       <Container>
         <Breadcrumbs aria-label="breadcrumb">
           <Link component={NavLink} to="/products">

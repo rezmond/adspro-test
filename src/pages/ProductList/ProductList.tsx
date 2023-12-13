@@ -1,5 +1,5 @@
 import { useCallback, type FC } from 'react';
-import { CircularProgress } from '@mui/material';
+import { Box, CircularProgress } from '@mui/material';
 
 import { PageLayout } from '@/components/PageLayout';
 import { BottomToolbar } from '@/components/BottomToolbar';
@@ -13,7 +13,10 @@ import {
   ProductListContent,
   useProductList,
 } from '@/components/ProductListContent';
-import { useCategories } from '@/components/Categories';
+import { Categories, useCategories } from '@/components/Categories';
+import { ColorModeToggler } from '@/components/ColorModeToggler';
+
+import styles from './ProductList.module.css';
 
 type ProductListProps = { className?: string };
 
@@ -36,6 +39,10 @@ export const ProductList: FC<ProductListProps> = ({ className }) => {
       className={className}
       bottomToolbar={
         <BottomToolbar>
+          <Box className={styles.categoriesWrapper}>
+            <Categories />
+          </Box>
+          <ColorModeToggler />
           {!isUpSm &&
             (products.isLoading ? (
               <CircularProgress />

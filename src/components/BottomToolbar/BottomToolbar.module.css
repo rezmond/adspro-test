@@ -1,7 +1,5 @@
 .bottomToolbar {
   min-height: calc(var(--spacing) * 2);
-}
-
-.categoriesWrapper {
-  flex-grow: 1;
+  justify-content: flex-end;
+  gap: var(--spacing);
 }
