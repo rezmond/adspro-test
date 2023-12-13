@@ -8,9 +8,9 @@ import {
 import { type FC } from 'react';
 import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
-import { Star } from '@mui/icons-material';
 
 import { Product } from '../Product';
+import { Votes } from '../Votes';
 
 import styles from './ProductCard.module.css';
 
@@ -48,10 +48,7 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product }) => {
               {product.price}
             </Typography>
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {product.rating.count} votes <Star className={styles.star} />{' '}
-            {product.rating.rate}
-          </Typography>
+          <Votes rating={product.rating} />
         </CardContent>
       </Card>
     </NavLink>
