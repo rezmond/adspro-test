@@ -15,6 +15,7 @@ import {
 } from '@/components/ProductListContent';
 import { Categories, useCategories } from '@/components/Categories';
 import { ColorModeToggler } from '@/components/ColorModeToggler';
+import { VisuallyHidden } from '@/components/VisuallyHidden';
 
 import styles from './ProductList.module.css';
 
@@ -69,6 +70,9 @@ export const ProductList: FC<ProductListProps> = ({ className }) => {
         )
       }
     >
+      <VisuallyHidden>
+        <h1>Products</h1>
+      </VisuallyHidden>
       <ProductListContent products={products} />
     </PageLayout>
   );

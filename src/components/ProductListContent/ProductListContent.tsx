@@ -11,6 +11,7 @@ import {
 
 import { Product } from '../ProductDetails';
 import { ProductCard } from '../ProductCard';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 type ProductListContentProps = {
   products: SWRResponse<Product[], unknown, unknown>;
@@ -29,6 +30,9 @@ export const ProductListContent: FC<ProductListContentProps> = ({
 
   return (
     <Container>
+      <VisuallyHidden>
+        <h2>Product cards list</h2>
+      </VisuallyHidden>
       <Grid
         container
         component={List}

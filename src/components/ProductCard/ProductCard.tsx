@@ -35,7 +35,11 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product }) => {
           alt={product.title}
         />
         <CardContent className={styles.cardContent}>
-          <Typography variant="body2" className={styles.description}>
+          <Typography
+            variant="body2"
+            component="h3"
+            className={styles.description}
+          >
             {product.title}
           </Typography>
           <Typography variant="body2">
