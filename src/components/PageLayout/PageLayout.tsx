@@ -48,7 +48,7 @@ export const PageLayout: FC<PageLayoutProps> = ({
         <Box component="main" className={styles.mainContent}>
           {children}
         </Box>
-        {isUpSm && (
+        {isUpSm && asideContent && (
           <>
             <Divider orientation="vertical" flexItem />
             <Box component="aside" className={styles.asideContent}>
