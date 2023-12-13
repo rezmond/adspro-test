@@ -39,6 +39,7 @@
 .mainContent {
   flex-grow: 1;
   overflow: hidden;
+  color: var(--mui-palette-text-primary);
 }
 
 .asideContent {

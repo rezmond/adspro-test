@@ -21,7 +21,7 @@ export const ProductPage: FC<ProductPageProps> = () => {
         </BottomToolbar>
       }
     >
-      <Container>
+      <>
         <Breadcrumbs aria-label="breadcrumb">
           <Link component={NavLink} to="/products">
             Products
@@ -29,7 +29,7 @@ export const ProductPage: FC<ProductPageProps> = () => {
           <Typography color="text.primary">{params.id}</Typography>
         </Breadcrumbs>
         <ProductDetails id={params.id!} />
-      </Container>
+      </>
     </PageLayout>
   );
 };

@@ -1,12 +1,6 @@
 import { type FC } from 'react';
 import { type SWRResponse } from 'swr';
-import {
-  CircularProgress,
-  Container,
-  Grid,
-  List,
-  ListItem,
-} from '@mui/material';
+import { CircularProgress, Grid, List, ListItem } from '@mui/material';
 
 import { Product } from '../ProductDetails';
 import { ProductCard } from '../ProductCard';
@@ -34,7 +28,7 @@ export const ProductListContent: FC<ProductListContentProps> = ({
   }
 
   return (
-    <Container>
+    <>
       <VisuallyHidden>
         <h2>Product cards list</h2>
       </VisuallyHidden>
@@ -59,6 +53,6 @@ export const ProductListContent: FC<ProductListContentProps> = ({
           </Grid>
         ))}
       </Grid>
-    </Container>
+    </>
   );
 };

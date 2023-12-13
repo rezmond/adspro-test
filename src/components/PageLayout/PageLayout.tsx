@@ -1,4 +1,4 @@
-import { AppBar, Box, Divider, Stack, Toolbar } from '@mui/material';
+import { AppBar, Box, Container, Divider, Stack, Toolbar } from '@mui/material';
 import { ReactNode, type FC } from 'react';
 
 import { useUpSm } from '@/shared/hooks';
@@ -45,9 +45,9 @@ export const PageLayout: FC<PageLayoutProps> = ({
         {bottomToolbar}
       </AppBar>
       <Box className={styles.contentWrapper}>
-        <Box component="main" className={styles.mainContent}>
+        <Container component="main" className={styles.mainContent}>
           {children}
-        </Box>
+        </Container>
         {isUpSm && asideContent && (
           <>
             <Divider orientation="vertical" flexItem />
